@@ -5,6 +5,10 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(CHECK REQUIRED check)
 
 set(CMAKE_C_STANDARD 11)
+
+add_compile_options(-fsanitize=address -fno-omit-frame-pointer -g)
+add_link_options(-fsanitize=address)
+
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS OFF)
 

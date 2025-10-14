@@ -29,7 +29,7 @@ void university_destroy(University *u)
 		return;
 
 	for (size_t i = 0; i < u->faculty_count; i++)
-         faculty_destroy(u->faculties[i]);
+         if (u->faculties[i] != NULL) faculty_destroy(u->faculties[i]);
     
     free(u->faculties);
 	free(u);
@@ -48,8 +48,14 @@ int university_set_name(University *u, const char *name)
 
 int university_add_faculty(University *u, struct Faculty *f)
 {
-	if (f == NULL || u == NULL)
+	if (f == NULL)
 		return ERR;
+
+	if (u == NULL)
+	{
+		faculty_destroy(f);
+		return ERR;
+	}
 	
 	if (find_faculty_idx_in_university(f, u) != SIZE_MAX)
 	{
@@ -63,8 +69,11 @@ int university_add_faculty(University *u, struct Faculty *f)
     void *tmp_ptr = reserve_ptr_arr(u->faculties, element_size,
 		                            &u->faculty_cap, next);
     
-    if (tmp_ptr == NULL) 
-        return ERR;
+    if (tmp_ptr == NULL)
+	{
+		faculty_destroy(f);
+		return ERR;
+	}
 
     u->faculties = (Faculty **)tmp_ptr;
 	u->faculties[u->faculty_count++] = f;

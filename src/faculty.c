@@ -41,7 +41,7 @@ Faculty *faculty_create(int id, const char *name)
 void faculty_destroy(Faculty *f)
 {
 	for (size_t i = 0; i < f->group_count; i++)
-         group_destroy(f->groups[i]);
+         if (f->groups[i] != NULL) group_destroy(f->groups[i]);
 
     free(f->groups);
 	free(f);
@@ -66,10 +66,24 @@ int faculty_set_name(Faculty *f, const char *name)
 
 int faculty_add_group(University *u, Faculty *f, struct Group *g)
 {
-	if (f == NULL || g == NULL)
+	if (g == NULL)
 		return ERR;
+
+	if (u == NULL || f == NULL)
+	{
+		group_destroy(g);
+		return ERR;
+	}
 	
-	if (faculty_find_group(f, g->id) != NULL || university_find_group(u, g->id) != NULL)
+	if (faculty_find_group(f, g->id) != NULL)
+	{
+		if (faculty_find_group(f, g->id) == g)
+			return ERR;
+
+		group_destroy(g);
+		return ERR;
+	}
+	if (university_find_group(u, g->id) != NULL)
 	{
 		group_destroy(g);
 		return ERR;
@@ -81,8 +95,11 @@ int faculty_add_group(University *u, Faculty *f, struct Group *g)
     void *tmp_ptr = reserve_ptr_arr(f->groups, element_size,
 		            &f->group_cap, next);
 	
-    if (tmp_ptr == NULL) 
-        return ERR;
+    if (tmp_ptr == NULL)
+	{
+		group_destroy(g);
+		return ERR;
+	}
 
     f->groups = (Group **)tmp_ptr;
 	f->groups[f->group_count++] = g;

@@ -3,45 +3,82 @@
 #include "faculty.h"
 #include <check.h>
 
-static University *u;
-static Faculty *f1, *f2;
+static University *u = NULL;
 
 static void setup(void)
 {
-	u = university_create("Vilnius Tech");
-    f1 = faculty_create(100, "Electronics");
-    f2 = faculty_create(101, "Fundamental Sciences");
+	u = university_create("TestU");
+	ck_assert_ptr_nonnull(u);
 }
 
 static void destroy(void) 
 {
 	university_destroy(u);
+	u = NULL;
+}
+
+static Faculty *make_faculty(int id, const char *name)
+{
+	Faculty *f = faculty_create(id, name);
+	ck_assert_ptr_nonnull(f);
+	return f;
+}
+
+static Group *make_group(int id, const char *name)
+{
+	Group *g = group_create(id, name);
+	ck_assert_ptr_nonnull(g);
+	return g;
 }
 
 START_TEST(add_faculties)
 {
 	/* unit test code */
-	ck_assert_int_eq(university_add_faculty(u, f1), OK);
-	ck_assert_int_eq(university_add_faculty(u, f2), OK);
-	ck_assert_int_eq(u->faculty_count, 2);
+	Faculty *f = make_faculty(100, "Elec");
+	ck_assert_int_eq(university_add_faculty(u, f), OK);
+	ck_assert_int_eq((int)u->faculty_count, 1);
+	ck_assert_ptr_eq(university_find_faculty(u, 100), f);
 }
 END_TEST
 
-START_TEST(test_duplicates)
+START_TEST(test_faculty_duplicates_callee_frees)
 {
-    University *u = university_create("U");
-    Faculty *f1 = faculty_create(1, "A");
-    Faculty *f2 = faculty_create(1, "B");
-    ck_assert_int_eq(university_add_faculty(u, f1), OK);
+    Faculty *f1 = make_faculty(100, "Elec");
+	Faculty *f2 = make_faculty(100, "Fund");
+	ck_assert_int_eq(university_add_faculty(u, f1), OK);
     ck_assert_int_eq(university_add_faculty(u, f2), ERR);
-    ck_assert_int_eq(u->faculty_count, 1);
-    university_destroy(u);
+    ck_assert_int_eq((int)u->faculty_count, 1);
+    ck_assert_ptr_eq(university_find_faculty(u, 100), f1);
+}
+END_TEST
+
+START_TEST(test_group_duplicates_callee_frees)
+{
+    Faculty *f1 = make_faculty(100, "Elec");
+	Faculty *f2 = make_faculty(101, "Fund");
+	ck_assert_int_eq(university_add_faculty(u, f1), OK);
+    ck_assert_int_eq(university_add_faculty(u, f2), OK);
+	Group *g1 = make_group(10, "EIfu-23");
+	Group *g2 = make_group(10, "ISKfu-23");
+
+	ck_assert_int_eq(faculty_add_group(u, f1, g1), OK);
+	ck_assert_int_eq(faculty_add_group(u, f2, g2), ERR);
+}
+END_TEST
+
+START_TEST(test_null_inputs)
+{
+    Faculty *f1 = make_faculty(100, "Elec");
+	ck_assert_int_eq(university_add_faculty(NULL, f1), ERR);
+	ck_assert_int_eq(university_add_faculty(u, NULL), ERR);
 }
 END_TEST
 
 START_TEST(remove_faculties)
 {
 	/* unit test code */
+	Faculty *f1 = make_faculty(100, "Elec");
+	Faculty *f2 = make_faculty(101, "Fund");
     ck_assert_int_eq(university_add_faculty(u, f1), OK);
 	ck_assert_int_eq(university_add_faculty(u, f2), OK);
 	ck_assert_int_eq(u->faculty_count, 2);
@@ -59,7 +96,9 @@ Suite *university_suite(void)
 	tcase_add_checked_fixture(tc, setup, destroy);
 
 	tcase_add_test(tc, add_faculties);
-	tcase_add_test(tc, test_duplicates);
+	tcase_add_test(tc, test_null_inputs);
+	tcase_add_test(tc, test_faculty_duplicates_callee_frees);
+	tcase_add_test(tc, test_group_duplicates_callee_frees);
 	tcase_add_test(tc, remove_faculties);
 
 	suite_add_tcase(suite, tc);
