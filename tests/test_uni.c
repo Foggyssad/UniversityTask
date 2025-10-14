@@ -29,10 +29,13 @@ END_TEST
 
 START_TEST(test_duplicates)
 {
-	/* unit test code */
+    University *u = university_create("U");
+    Faculty *f1 = faculty_create(1, "A");
+    Faculty *f2 = faculty_create(1, "B");
     ck_assert_int_eq(university_add_faculty(u, f1), OK);
-	ck_assert_int_eq(university_add_faculty(u, f1), ERR);
-	ck_assert_int_eq(u->faculty_count, 1);
+    ck_assert_int_eq(university_add_faculty(u, f2), ERR);
+    ck_assert_int_eq(u->faculty_count, 1);
+    university_destroy(u);
 }
 END_TEST
 

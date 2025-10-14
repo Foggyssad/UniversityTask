@@ -52,7 +52,10 @@ int university_add_faculty(University *u, struct Faculty *f)
 		return ERR;
 	
 	if (find_faculty_idx_in_university(f, u) != SIZE_MAX)
+	{
+		faculty_destroy(f);
 		return ERR;
+	}
 	
 	size_t next = u->faculty_count + 1;
     size_t element_size = sizeof *u->faculties;

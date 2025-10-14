@@ -70,7 +70,10 @@ int faculty_add_group(University *u, Faculty *f, struct Group *g)
 		return ERR;
 	
 	if (faculty_find_group(f, g->id) != NULL || university_find_group(u, g->id) != NULL)
+	{
+		group_destroy(g);
 		return ERR;
+	}
 	
 	size_t next = f->group_count + 1;
     size_t element_size = sizeof *f->groups;
