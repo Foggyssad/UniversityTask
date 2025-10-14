@@ -14,7 +14,7 @@ size_t find_student_idx_in_group(Student *s, Group *g)
 	if (s == NULL || g == NULL || g->student_count == 0 || g->students == NULL)
 		return SIZE_MAX;
 		
-	for (size_t i = 0; i < s->group_count; i++) {
+	for (size_t i = 0; i < g->student_count; i++) {
 		if (g->students[i] == s) {
 			return i;
 		}

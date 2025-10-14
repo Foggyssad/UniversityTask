@@ -119,7 +119,7 @@ static int cmd_list_groups(App *a, int argc, char **argv)
     return OK;
 }
 
-static int cmd_list_student_groups(App *a, int argc, char **argv)
+static int cmd_student_list_groups(App *a, int argc, char **argv)
 {
     if (argc < 1)
         return ERR;
@@ -180,7 +180,7 @@ static int cmd_faculty_list_groups(App *a, int argc, char **argv)
     return faculty_list_groups(f);
 }
 
-static int cmd_list_group_students(App *a, int argc, char **argv)
+static int cmd_group_list_students(App *a, int argc, char **argv)
 {
     if (argc < 1)
         return ERR;
@@ -272,11 +272,11 @@ static const Command commands[] = {
     {"add-student", cmd_add_student, "add-student <id> <name> - add a student into the global doubly linked list"},
     {"remove-student", cmd_remove_student, "remove-student <id> - remove a student from the global doubly linked list"},
     {"list-students", cmd_list_students, "list-students - list all students across the whole university"},
-    {"list-student-groups", cmd_list_student_groups, "list-student-groups <student_id> - list groups of a particualr student"},
+    {"list-student-groups", cmd_student_list_groups, "list-student-groups <student_id> - list groups of a particualr student"},
     {"faculty-add-group", cmd_add_group, "faculty-add-group <faculty_id> <group_id> <group_name> - add group into a particular faculty"},
     {"faculty-remove-group", cmd_remove_group, "faculty-remove-group <faculty_id> <group_id> - remove group from a particular faculty"},
     {"faculty-list-groups", cmd_faculty_list_groups, "faculty-list-groups <faculty_id> - list all groups that belong to a particular faculty"},
-    {"list-group-students", cmd_list_group_students, "list-group-students <group_id>"},
+    {"list-group-students", cmd_group_list_students, "list-group-students <group_id>"},
     {"enroll", cmd_enroll, "enroll <student_id> <group_id>"},
     {"unenroll", cmd_unenroll, "unenroll <student_id> <group_id>"},
     {"uni-info", cmd_uni_info, "uni-info - print short summary of the university"},
