@@ -36,6 +36,10 @@ static int tokenizer(char *line, char **argv, int maxv)
 
 static int cmd_add_faculty(App *a, int argc, char **argv)
 {
+    
+    if (university_find_faculty(a->uni, atoi(argv[0])) != NULL)
+        return ERR;
+
     if (argc < 2)
         return ERR;
     else
@@ -55,9 +59,8 @@ static int cmd_add_faculty(App *a, int argc, char **argv)
             Faculty *f = faculty_create(id, name);
             return university_add_faculty(a->uni, f);
         }
-        
-
     int id = atoi(argv[0]);
+    
     Faculty *f = faculty_create(id, argv[1]);
     return university_add_faculty(a->uni, f);
 }

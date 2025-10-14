@@ -74,7 +74,7 @@ size_t find_faculty_idx_in_university(Faculty *f, University *u)
 		return SIZE_MAX;
 		
 	for (size_t i = 0; i < u->faculty_count; i++) {
-		if (u->faculties[i] == f) {
+		if (u->faculties[i]->id == f->id) {
 			return i;
 		}
 	}
