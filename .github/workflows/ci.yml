@@ -11,6 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y check pkg-config
+
       - name: Configure CMake
         run: cmake -S . -B build_dir -DCMAKE_BUILD_TYPE=Debug
 
