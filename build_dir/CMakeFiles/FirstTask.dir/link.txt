@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/FirstTask.dir/src/main.c.o CMakeFiles/FirstTask.dir/src/university.c.o CMakeFiles/FirstTask.dir/src/utils.c.o CMakeFiles/FirstTask.dir/src/faculty.c.o CMakeFiles/FirstTask.dir/src/group.c.o CMakeFiles/FirstTask.dir/src/student.c.o -o FirstTask 

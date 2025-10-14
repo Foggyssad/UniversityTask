@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/test_student.dir/tests/test_student.c.o CMakeFiles/test_student.dir/src/student.c.o CMakeFiles/test_student.dir/src/group.c.o CMakeFiles/test_student.dir/src/utils.c.o -o test_student  -lcheck_pic -lrt -lm -lsubunit 

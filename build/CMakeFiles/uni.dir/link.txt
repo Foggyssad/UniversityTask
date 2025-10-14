@@ -1,1 +1,0 @@
-/usr/bin/gcc -g CMakeFiles/uni.dir/src/main.c.o CMakeFiles/uni.dir/src/university.c.o CMakeFiles/uni.dir/src/faculty.c.o CMakeFiles/uni.dir/src/group.c.o CMakeFiles/uni.dir/src/student.c.o CMakeFiles/uni.dir/src/utils.c.o CMakeFiles/uni.dir/src/app.c.o CMakeFiles/uni.dir/src/cli.c.o -o uni 
