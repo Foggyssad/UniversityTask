@@ -117,5 +117,5 @@ int main(void)
 	srunner_run_all(sr, CK_NORMAL);
 	int failed = srunner_ntests_failed(sr);
 	srunner_free(sr);
-	return failed ? 1 : 0;
+	return failed ? ERR : OK;
 }
