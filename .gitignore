@@ -1,0 +1,18 @@
+# CMake build directories
+build/
+build_dir/
+build-*/
+cmake-build-*/
+
+# Object and executable files
+*.o
+*.obj
+*.so
+
+.vscode/
+.idea/
+*.swp
+*.swo
+*.user
+*.workspace
+*.code-workspace
