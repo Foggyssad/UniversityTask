@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "string.h": "c",
+        "stdlib.h": "c",
+        "group.h": "c",
+        "faculty.h": "c"
+    },
+    "C_Cpp.default.compileCommands": "${workspaceFolder}/build_dir/compile.commands.json",
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "C_Cpp.errorSquiggles": "enabled"
+}

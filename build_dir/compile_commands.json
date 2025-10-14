@@ -1,0 +1,158 @@
+[
+{
+  "directory": "/home/mykhailo/FirstTask/build_dir",
+  "command": "/usr/bin/cc  -I/home/mykhailo/FirstTask/include -std=c11 -Wall -Wextra -Wpedantic -Wconversion -Wsign-conversion -Wundef -Wcast-align -o CMakeFiles/uni.dir/src/main.c.o -c /home/mykhailo/FirstTask/src/main.c",
+  "file": "/home/mykhailo/FirstTask/src/main.c",
+  "output": "CMakeFiles/uni.dir/src/main.c.o"
+},
+{
+  "directory": "/home/mykhailo/FirstTask/build_dir",
+  "command": "/usr/bin/cc  -I/home/mykhailo/FirstTask/include -std=c11 -Wall -Wextra -Wpedantic -Wconversion -Wsign-conversion -Wundef -Wcast-align -o CMakeFiles/uni.dir/src/university.c.o -c /home/mykhailo/FirstTask/src/university.c",
+  "file": "/home/mykhailo/FirstTask/src/university.c",
+  "output": "CMakeFiles/uni.dir/src/university.c.o"
+},
+{
+  "directory": "/home/mykhailo/FirstTask/build_dir",
+  "command": "/usr/bin/cc  -I/home/mykhailo/FirstTask/include -std=c11 -Wall -Wextra -Wpedantic -Wconversion -Wsign-conversion -Wundef -Wcast-align -o CMakeFiles/uni.dir/src/faculty.c.o -c /home/mykhailo/FirstTask/src/faculty.c",
+  "file": "/home/mykhailo/FirstTask/src/faculty.c",
+  "output": "CMakeFiles/uni.dir/src/faculty.c.o"
+},
+{
+  "directory": "/home/mykhailo/FirstTask/build_dir",
+  "command": "/usr/bin/cc  -I/home/mykhailo/FirstTask/include -std=c11 -Wall -Wextra -Wpedantic -Wconversion -Wsign-conversion -Wundef -Wcast-align -o CMakeFiles/uni.dir/src/group.c.o -c /home/mykhailo/FirstTask/src/group.c",
+  "file": "/home/mykhailo/FirstTask/src/group.c",
+  "output": "CMakeFiles/uni.dir/src/group.c.o"
+},
+{
+  "directory": "/home/mykhailo/FirstTask/build_dir",
+  "command": "/usr/bin/cc  -I/home/mykhailo/FirstTask/include -std=c11 -Wall -Wextra -Wpedantic -Wconversion -Wsign-conversion -Wundef -Wcast-align -o CMakeFiles/uni.dir/src/student.c.o -c /home/mykhailo/FirstTask/src/student.c",
+  "file": "/home/mykhailo/FirstTask/src/student.c",
+  "output": "CMakeFiles/uni.dir/src/student.c.o"
+},
+{
+  "directory": "/home/mykhailo/FirstTask/build_dir",
+  "command": "/usr/bin/cc  -I/home/mykhailo/FirstTask/include -std=c11 -Wall -Wextra -Wpedantic -Wconversion -Wsign-conversion -Wundef -Wcast-align -o CMakeFiles/uni.dir/src/utils.c.o -c /home/mykhailo/FirstTask/src/utils.c",
+  "file": "/home/mykhailo/FirstTask/src/utils.c",
+  "output": "CMakeFiles/uni.dir/src/utils.c.o"
+},
+{
+  "directory": "/home/mykhailo/FirstTask/build_dir",
+  "command": "/usr/bin/cc  -I/home/mykhailo/FirstTask/include -std=c11 -Wall -Wextra -Wpedantic -Wconversion -Wsign-conversion -Wundef -Wcast-align -o CMakeFiles/uni.dir/src/app.c.o -c /home/mykhailo/FirstTask/src/app.c",
+  "file": "/home/mykhailo/FirstTask/src/app.c",
+  "output": "CMakeFiles/uni.dir/src/app.c.o"
+},
+{
+  "directory": "/home/mykhailo/FirstTask/build_dir",
+  "command": "/usr/bin/cc  -I/home/mykhailo/FirstTask/include -std=c11 -Wall -Wextra -Wpedantic -Wconversion -Wsign-conversion -Wundef -Wcast-align -o CMakeFiles/uni.dir/src/cli.c.o -c /home/mykhailo/FirstTask/src/cli.c",
+  "file": "/home/mykhailo/FirstTask/src/cli.c",
+  "output": "CMakeFiles/uni.dir/src/cli.c.o"
+},
+{
+  "directory": "/home/mykhailo/FirstTask/build_dir",
+  "command": "/usr/bin/cc  -I/home/mykhailo/FirstTask/include -std=c11 -pthread -o CMakeFiles/test_student.dir/tests/test_student.c.o -c /home/mykhailo/FirstTask/tests/test_student.c",
+  "file": "/home/mykhailo/FirstTask/tests/test_student.c",
+  "output": "CMakeFiles/test_student.dir/tests/test_student.c.o"
+},
+{
+  "directory": "/home/mykhailo/FirstTask/build_dir",
+  "command": "/usr/bin/cc  -I/home/mykhailo/FirstTask/include -std=c11 -pthread -o CMakeFiles/test_student.dir/src/student.c.o -c /home/mykhailo/FirstTask/src/student.c",
+  "file": "/home/mykhailo/FirstTask/src/student.c",
+  "output": "CMakeFiles/test_student.dir/src/student.c.o"
+},
+{
+  "directory": "/home/mykhailo/FirstTask/build_dir",
+  "command": "/usr/bin/cc  -I/home/mykhailo/FirstTask/include -std=c11 -pthread -o CMakeFiles/test_student.dir/src/group.c.o -c /home/mykhailo/FirstTask/src/group.c",
+  "file": "/home/mykhailo/FirstTask/src/group.c",
+  "output": "CMakeFiles/test_student.dir/src/group.c.o"
+},
+{
+  "directory": "/home/mykhailo/FirstTask/build_dir",
+  "command": "/usr/bin/cc  -I/home/mykhailo/FirstTask/include -std=c11 -pthread -o CMakeFiles/test_student.dir/src/utils.c.o -c /home/mykhailo/FirstTask/src/utils.c",
+  "file": "/home/mykhailo/FirstTask/src/utils.c",
+  "output": "CMakeFiles/test_student.dir/src/utils.c.o"
+},
+{
+  "directory": "/home/mykhailo/FirstTask/build_dir",
+  "command": "/usr/bin/cc  -I/home/mykhailo/FirstTask/include -std=c11 -pthread -o CMakeFiles/test_student_groups.dir/tests/test_student_groups.c.o -c /home/mykhailo/FirstTask/tests/test_student_groups.c",
+  "file": "/home/mykhailo/FirstTask/tests/test_student_groups.c",
+  "output": "CMakeFiles/test_student_groups.dir/tests/test_student_groups.c.o"
+},
+{
+  "directory": "/home/mykhailo/FirstTask/build_dir",
+  "command": "/usr/bin/cc  -I/home/mykhailo/FirstTask/include -std=c11 -pthread -o CMakeFiles/test_student_groups.dir/src/student.c.o -c /home/mykhailo/FirstTask/src/student.c",
+  "file": "/home/mykhailo/FirstTask/src/student.c",
+  "output": "CMakeFiles/test_student_groups.dir/src/student.c.o"
+},
+{
+  "directory": "/home/mykhailo/FirstTask/build_dir",
+  "command": "/usr/bin/cc  -I/home/mykhailo/FirstTask/include -std=c11 -pthread -o CMakeFiles/test_student_groups.dir/src/group.c.o -c /home/mykhailo/FirstTask/src/group.c",
+  "file": "/home/mykhailo/FirstTask/src/group.c",
+  "output": "CMakeFiles/test_student_groups.dir/src/group.c.o"
+},
+{
+  "directory": "/home/mykhailo/FirstTask/build_dir",
+  "command": "/usr/bin/cc  -I/home/mykhailo/FirstTask/include -std=c11 -pthread -o CMakeFiles/test_student_groups.dir/src/utils.c.o -c /home/mykhailo/FirstTask/src/utils.c",
+  "file": "/home/mykhailo/FirstTask/src/utils.c",
+  "output": "CMakeFiles/test_student_groups.dir/src/utils.c.o"
+},
+{
+  "directory": "/home/mykhailo/FirstTask/build_dir",
+  "command": "/usr/bin/cc  -I/home/mykhailo/FirstTask/include -std=c11 -pthread -o CMakeFiles/test_faculty.dir/tests/test_faculty.c.o -c /home/mykhailo/FirstTask/tests/test_faculty.c",
+  "file": "/home/mykhailo/FirstTask/tests/test_faculty.c",
+  "output": "CMakeFiles/test_faculty.dir/tests/test_faculty.c.o"
+},
+{
+  "directory": "/home/mykhailo/FirstTask/build_dir",
+  "command": "/usr/bin/cc  -I/home/mykhailo/FirstTask/include -std=c11 -pthread -o CMakeFiles/test_faculty.dir/src/university.c.o -c /home/mykhailo/FirstTask/src/university.c",
+  "file": "/home/mykhailo/FirstTask/src/university.c",
+  "output": "CMakeFiles/test_faculty.dir/src/university.c.o"
+},
+{
+  "directory": "/home/mykhailo/FirstTask/build_dir",
+  "command": "/usr/bin/cc  -I/home/mykhailo/FirstTask/include -std=c11 -pthread -o CMakeFiles/test_faculty.dir/src/faculty.c.o -c /home/mykhailo/FirstTask/src/faculty.c",
+  "file": "/home/mykhailo/FirstTask/src/faculty.c",
+  "output": "CMakeFiles/test_faculty.dir/src/faculty.c.o"
+},
+{
+  "directory": "/home/mykhailo/FirstTask/build_dir",
+  "command": "/usr/bin/cc  -I/home/mykhailo/FirstTask/include -std=c11 -pthread -o CMakeFiles/test_faculty.dir/src/group.c.o -c /home/mykhailo/FirstTask/src/group.c",
+  "file": "/home/mykhailo/FirstTask/src/group.c",
+  "output": "CMakeFiles/test_faculty.dir/src/group.c.o"
+},
+{
+  "directory": "/home/mykhailo/FirstTask/build_dir",
+  "command": "/usr/bin/cc  -I/home/mykhailo/FirstTask/include -std=c11 -pthread -o CMakeFiles/test_faculty.dir/src/utils.c.o -c /home/mykhailo/FirstTask/src/utils.c",
+  "file": "/home/mykhailo/FirstTask/src/utils.c",
+  "output": "CMakeFiles/test_faculty.dir/src/utils.c.o"
+},
+{
+  "directory": "/home/mykhailo/FirstTask/build_dir",
+  "command": "/usr/bin/cc  -I/home/mykhailo/FirstTask/include -std=c11 -pthread -o CMakeFiles/test_university.dir/tests/test_uni.c.o -c /home/mykhailo/FirstTask/tests/test_uni.c",
+  "file": "/home/mykhailo/FirstTask/tests/test_uni.c",
+  "output": "CMakeFiles/test_university.dir/tests/test_uni.c.o"
+},
+{
+  "directory": "/home/mykhailo/FirstTask/build_dir",
+  "command": "/usr/bin/cc  -I/home/mykhailo/FirstTask/include -std=c11 -pthread -o CMakeFiles/test_university.dir/src/university.c.o -c /home/mykhailo/FirstTask/src/university.c",
+  "file": "/home/mykhailo/FirstTask/src/university.c",
+  "output": "CMakeFiles/test_university.dir/src/university.c.o"
+},
+{
+  "directory": "/home/mykhailo/FirstTask/build_dir",
+  "command": "/usr/bin/cc  -I/home/mykhailo/FirstTask/include -std=c11 -pthread -o CMakeFiles/test_university.dir/src/faculty.c.o -c /home/mykhailo/FirstTask/src/faculty.c",
+  "file": "/home/mykhailo/FirstTask/src/faculty.c",
+  "output": "CMakeFiles/test_university.dir/src/faculty.c.o"
+},
+{
+  "directory": "/home/mykhailo/FirstTask/build_dir",
+  "command": "/usr/bin/cc  -I/home/mykhailo/FirstTask/include -std=c11 -pthread -o CMakeFiles/test_university.dir/src/group.c.o -c /home/mykhailo/FirstTask/src/group.c",
+  "file": "/home/mykhailo/FirstTask/src/group.c",
+  "output": "CMakeFiles/test_university.dir/src/group.c.o"
+},
+{
+  "directory": "/home/mykhailo/FirstTask/build_dir",
+  "command": "/usr/bin/cc  -I/home/mykhailo/FirstTask/include -std=c11 -pthread -o CMakeFiles/test_university.dir/src/utils.c.o -c /home/mykhailo/FirstTask/src/utils.c",
+  "file": "/home/mykhailo/FirstTask/src/utils.c",
+  "output": "CMakeFiles/test_university.dir/src/utils.c.o"
+}
+]
