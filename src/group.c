@@ -14,11 +14,14 @@ size_t find_student_idx_in_group(Student *s, Group *g)
 	if (s == NULL || g == NULL || g->student_count == 0 || g->students == NULL)
 		return SIZE_MAX;
 		
-	for (size_t i = 0; i < g->student_count; i++) {
-		if (g->students[i] == s) {
+	for (size_t i = 0; i < g->student_count; i++) 
+	{
+		if (g->students[i] == s) 
+		{
 			return i;
 		}
 	}
+
 	return SIZE_MAX;
 }
 
@@ -27,11 +30,14 @@ size_t find_group_idx_in_student(const Student *s, const Group *g)
 	if (s == NULL || g == NULL || s->group_count == 0 || s->groups == NULL)
 		return SIZE_MAX;
 	
-	for (size_t i = 0; i < s->group_count; i++) {
-		if (s->groups[i] == g) {
+	for (size_t i = 0; i < s->group_count; i++) 
+	{
+		if (s->groups[i] == g) 
+		{
 			return i;
 		}
 	}
+	
 	return SIZE_MAX;
 }
 
