@@ -38,7 +38,10 @@ static int cmd_add_faculty(App *a, int argc, char **argv)
 {
 
     if (argc < 2)
+    {
+        printf("%s", "Error: failed to add the faculty (invalid input).\n");
         return ERR;
+    }
     else
         if (argc >= 3)
         {
@@ -60,7 +63,10 @@ static int cmd_add_faculty(App *a, int argc, char **argv)
             return university_add_faculty(a->uni, f);
         }
     if (university_find_faculty(a->uni, atoi(argv[0])) != NULL)
+    {
+        printf("%s\n", "Error: failed to add faculty (duplicate id).");
         return ERR;
+    }
     
     int id = atoi(argv[0]);
     
@@ -71,11 +77,21 @@ static int cmd_add_faculty(App *a, int argc, char **argv)
 static int cmd_remove_faculty(App *a, int argc, char **argv)
 {
     if (argc < 1)
+    {
+        printf("%s", "Error: failed to remove the faculty (invalid input).\n");
         return ERR;
+    }
 
     int id = atoi(argv[0]);
     Faculty *f = university_find_faculty(a->uni, id);
-    return university_remove_faculty(a->uni, f);
+    if (university_remove_faculty(a->uni, f) == OK)
+        return OK;
+
+        else
+    {
+        printf("%s %d %s", "Error: failed to remove the faculty with id ", id, "\n");
+        return ERR;
+    }
 }
 
 static int cmd_list_faculties(App *a, int argc, char **argv)
@@ -89,7 +105,10 @@ static int cmd_list_faculties(App *a, int argc, char **argv)
 static int cmd_add_student(App *a, int argc, char **argv)
 {
     if (argc < 2)
+    {
+        printf("%s", "Error: failed to add the student (invalid input).\n");
         return ERR;
+    }
 
     int id = atoi(argv[0]);
     char *name = argv[1];
@@ -100,10 +119,21 @@ static int cmd_add_student(App *a, int argc, char **argv)
 static int cmd_remove_student(App *a, int argc, char **argv)
 {
     if (argc < 1)
+    {
+        printf("%s", "Error: failed to remove the faculty (invalid input).\n");
         return ERR;
+    }
     
     int id = atoi(argv[0]);
-    return student_remove(&a->student_list, id);
+    if (student_remove(&a->student_list, id) == OK)
+        return OK;
+
+        else
+    {
+        printf("%s %d %s", "Error: failed to remove the student with id ", id, "\n");
+        return ERR;
+    }
+    return OK;
 }
 
 static int cmd_list_students(App *a, int argc, char **argv)
@@ -125,7 +155,10 @@ static int cmd_list_groups(App *a, int argc, char **argv)
 static int cmd_student_list_groups(App *a, int argc, char **argv)
 {
     if (argc < 1)
+    {
+        printf("%s", "Error: failed to list the groups which the student is enrolled in (invalid input).\n");
         return ERR;
+    }
     
     int id = atoi(argv[0]);
     Student *s = student_find(&a->student_list, id);
@@ -135,13 +168,19 @@ static int cmd_student_list_groups(App *a, int argc, char **argv)
 static int cmd_add_group(App *a, int argc, char **argv)
 {
     if (argc < 3)
+    {
+        printf("%s", "Error: failed to add the group to the faculty (invalid input).\n");
         return ERR;
+    }
     
     int faculty_id = atoi(argv[0]);
     int group_id = atoi(argv[1]);
 
     if (university_find_faculty(a->uni, faculty_id) == NULL || university_find_group(a->uni, group_id) != NULL)
+    {
+        printf("%s\n", "Error: failed to add a group to the faculty (duplicate id).\n");
         return ERR;
+    }
     
     
     char group_name[128] = "";
@@ -164,19 +203,35 @@ static int cmd_add_group(App *a, int argc, char **argv)
 static int cmd_remove_group(App *a, int argc, char **argv)
 {
     if (argc < 2)
+    {
+        printf("%s", "Error: failed to remove the group (invalid input).\n");
         return ERR;
+    }
     
     int faculty_id = atoi(argv[0]);
     int group_id = atoi(argv[1]);
     Faculty *f = university_find_faculty(a->uni, faculty_id);
     Group *g = faculty_find_group(f, group_id);
-    return faculty_remove_group(f, g);
+
+    if (faculty_remove_group(f, g) == OK)
+        return OK;
+
+        else
+        {
+            printf("%s %d %s %d %s", "Error: failed to remove the group with id ", group_id, " from the faculty with id ", faculty_id, "\n");
+            return ERR;
+        }
+
+    return OK;
 }
 
 static int cmd_faculty_list_groups(App *a, int argc, char **argv)
 {
     if (argc < 1)
+    {
+        printf("%s", "Error: failed to groups that belong to a partucular faculty (invalid input).\n");
         return ERR;
+    }
     
     int id = atoi(argv[0]);
     Faculty *f = university_find_faculty(a->uni, id);
@@ -186,7 +241,10 @@ static int cmd_faculty_list_groups(App *a, int argc, char **argv)
 static int cmd_group_list_students(App *a, int argc, char **argv)
 {
     if (argc < 1)
+    {
+        printf("%s", "Error: failed to list the students that are enrolled into a particular group (invalid input).\n");
         return ERR;
+    }
 
     int id = atoi(argv[0]);
     Group *g = university_find_group(a->uni, id);
@@ -196,7 +254,11 @@ static int cmd_group_list_students(App *a, int argc, char **argv)
 static int cmd_enroll(App *a, int argc, char **argv)
 {
     if (argc < 2)
+    {
+        printf("%s", "Error: failed to enroll the student into a group (invalid input).\n");
         return ERR;
+    }
+
     int student_id = atoi(argv[0]);
     Student *s = student_find(&a->student_list, student_id);
     int group_id = atoi(argv[1]);
@@ -207,7 +269,10 @@ static int cmd_enroll(App *a, int argc, char **argv)
 static int cmd_unenroll(App *a, int argc, char **argv)
 {
     if (argc < 2)
+    {
+        printf("%s", "Error: failed to uneneroll the student from a group (invalid input).\n");
         return ERR;
+    }
     
     int student_id = atoi(argv[0]);
     Student *s = student_find(&a->student_list, student_id);

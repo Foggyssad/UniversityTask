@@ -29,7 +29,8 @@ void university_destroy(University *u)
 		return;
 
 	for (size_t i = 0; i < u->faculty_count; i++)
-         if (u->faculties[i] != NULL) faculty_destroy(u->faculties[i]);
+         if (u->faculties[i] != NULL) 
+		 	faculty_destroy(u->faculties[i]);
     
     free(u->faculties);
 	free(u);

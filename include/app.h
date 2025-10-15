@@ -16,7 +16,7 @@
  * - Each 'Faculty' owns its 'Group' objects (composition relationship); 
  * - There cannot be two 'Group' and 'Faculty' instances with the same ID across the university;
  * - Each 'Group' maintains non-owning references to 'Student' objects and each 'Student' mainatains non-owning 
- *   references to 'Group' pbjects (many-to-many association relationship).
+ *   references to 'Group' objects (many-to-many association relationship).
  * 
  * Cleanup:
  * Call app_destroy() to free the data recursively:
@@ -32,7 +32,7 @@ typedef struct App {
 } App;
 
 /**
- * @brief 
+ * @brief Initialization of the University and StudentList containers.
  * 
  * @param a 
  * @param uni_name 
@@ -40,7 +40,7 @@ typedef struct App {
 void app_init(App *a, const char *uni_name);
 
 /**
- * @brief 
+ * @brief Destructor of the top-level structure.
  * 
  * @param a 
  */

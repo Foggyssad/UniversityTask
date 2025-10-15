@@ -36,7 +36,7 @@ typedef struct Student {
  * 
  * @details
  * Lifetime is managed by the 'App'. 'StudentList' owns all 'Student' nodes linked into it.
- * 
+ * Conatins head, tail pointers and own size. 
  * 
  * @
  */

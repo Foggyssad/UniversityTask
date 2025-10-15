@@ -26,52 +26,52 @@ typedef struct Group {
 } Group;
 
 /**
- * @brief 
+ * @brief Group Constructor. When called allocated memory, creates instance.
  * 
  * @param id 
  * @param name 
- * @return Group* 
+ * @return Group* on success, NULL on failure.
  */
 Group *group_create(int id, const char *name);
 
 /**
- * @brief 
+ * @brief Destructor of the 'Group' instance.
  * 
  * @param g 
  */
 void group_destroy(Group *g);
 
 /**
- * @brief 
+ * @brief Find the index of the pointer to the 'Student' instance inside the Group's (Student **) container.
  * 
  * @param s 
  * @param g 
- * @return size_t 
+ * @return size_t: idx on success, SIZE_MAX on failure.
  */
 size_t find_student_idx_in_group(Student *s, Group *g);
 
 /**
- * @brief 
+ * @brief Find the index of the pointer to the 'Group' instance inside the Student's (Group **) container.
  * 
  * @param s 
  * @param g 
- * @return size_t 
+ * @return size_t: idx on success, SIZE_MAX on failure.
  */
 size_t find_group_idx_in_student(const Student *s, const Group *g);
 
 /**
- * @brief 
+ * @brief Group name getter.
  * 
  * @param g 
- * @return const char* 
+ * @return const char* on success, NULL on failure.
  */
 const char *group_get_name(const Group *g);
 
 /**
- * @brief 
+ * @brief Student count getter.
  * 
  * @param g 
- * @return size_t 
+ * @return size_t: student_count on success, (size_t)ERR on failure.
  */
 size_t group_get_student_count(const Group *g);
 
@@ -80,7 +80,7 @@ size_t group_get_student_count(const Group *g);
  * 
  * @param g 
  * @param idx 
- * @return Student* 
+ * @return Student* on success, NULL on failure.
  */
 Student *group_get_student(const Group *g, size_t idx);
 
