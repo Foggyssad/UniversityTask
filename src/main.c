@@ -5,7 +5,7 @@
 #include "app.h"
 #include "utils.h"
 #include "cli.h"
-#include "result.h"
+#include "error_types.h"
 
 #include <stdio.h>
 #include <stdlib.h>

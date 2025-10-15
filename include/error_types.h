@@ -1,5 +1,5 @@
-#ifndef RESULT_H
-#define RESULT_H
+#ifndef ERROR_TYPES_H
+#define ERROR_TYPES_H
 
 #define OK 0
 #define ERR 1

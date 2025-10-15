@@ -1,4 +1,4 @@
-#include "result.h"
+#include "error_types.h"
 #include "university.h"
 #include "group.h"
 #include "faculty.h"

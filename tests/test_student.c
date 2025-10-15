@@ -1,4 +1,4 @@
-#include "result.h"
+#include "error_types.h"
 #include "group.h"
 #include "student.h"
 #include <check.h>

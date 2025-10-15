@@ -1,6 +1,6 @@
 #define _POSIX_C_SOURCE 200809L
 
-#include "result.h"
+#include "error_types.h"
 #include "app.h"
 #include "cli.h"
 #include "student.h"
@@ -137,7 +137,7 @@ static int cmd_add_group(App *a, int argc, char **argv)
     int faculty_id = atoi(argv[0]);
     int group_id = atoi(argv[1]);
 
-    if (university_find_group(a->uni, group_id) != NULL || university_find_faculty(a->uni, faculty_id) == NULL)
+    if (university_find_faculty(a->uni, faculty_id) == NULL || university_find_group(a->uni, group_id) != NULL)
         return ERR;
     
     
@@ -265,18 +265,18 @@ static int cmd_quit(App *a, int argc, char **argv)
 static int cmd_help(App *a, int argc, char **argv);
 
 static const Command commands[] = {
-    {"list-groups", cmd_list_groups, "list-groups - list groups across the whole university"},
+    {"list-groups", cmd_list_groups, "list-groups - list groups across the whole university in such format: <id> <name>"},
     {"add-faculty", cmd_add_faculty, "add-faculty <id> <name> - add faculty which is in composition relationship with the university"},
     {"remove-faculty", cmd_remove_faculty, "remove-faculty <id> - remove faculty from the university"},
-    {"list-faculties", cmd_list_faculties, "list-faculties - list all faculties across the whole university"},
+    {"list-faculties", cmd_list_faculties, "list-faculties - list all faculties across the whole university in such format: <id> <name>"},
     {"add-student", cmd_add_student, "add-student <id> <name> - add a student into the global doubly linked list"},
     {"remove-student", cmd_remove_student, "remove-student <id> - remove a student from the global doubly linked list"},
-    {"list-students", cmd_list_students, "list-students - list all students across the whole university"},
-    {"list-student-groups", cmd_student_list_groups, "list-student-groups <student_id> - list groups of a particualr student"},
+    {"list-students", cmd_list_students, "list-students - list all students across the whole university; format: <id> <name>"},
+    {"student-list-groups", cmd_student_list_groups, "student-list-groups <student_id> - list groups of a particualar student"},
     {"faculty-add-group", cmd_add_group, "faculty-add-group <faculty_id> <group_id> <group_name> - add group into a particular faculty"},
     {"faculty-remove-group", cmd_remove_group, "faculty-remove-group <faculty_id> <group_id> - remove group from a particular faculty"},
-    {"faculty-list-groups", cmd_faculty_list_groups, "faculty-list-groups <faculty_id> - list all groups that belong to a particular faculty"},
-    {"list-group-students", cmd_group_list_students, "list-group-students <group_id>"},
+    {"faculty-list-groups", cmd_faculty_list_groups, "faculty-list-groups <faculty_id> - list all groups that belong to a particular faculty in such format: <id> <name>"},
+    {"group-list-students", cmd_group_list_students, "group-list-students <group_id>"},
     {"enroll", cmd_enroll, "enroll <student_id> <group_id>"},
     {"unenroll", cmd_unenroll, "unenroll <student_id> <group_id>"},
     {"uni-info", cmd_uni_info, "uni-info - print short summary of the university"},
