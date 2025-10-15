@@ -66,7 +66,7 @@ size_t faculty_get_group_count(const Faculty *f);
  * 
  * @param f 
  * @param idx 
- * @return Group* 
+ * @return Group* on success, NULL on error
  */
 Group *faculty_get_group(const Faculty *f, size_t idx);
 
@@ -75,7 +75,7 @@ Group *faculty_get_group(const Faculty *f, size_t idx);
  * 
  * @param f 
  * @param name 
- * @return int 
+ * @return int: OK on success, ERR on error
  */
 int faculty_set_name(Faculty *f, const char *name);
 
@@ -84,7 +84,7 @@ int faculty_set_name(Faculty *f, const char *name);
  * 
  * @param f 
  * @param id 
- * @return int 
+ * @return int: OK on success, ERR on error
  */
 int faculty_set_id(Faculty *f, int id);
 
@@ -94,7 +94,7 @@ int faculty_set_id(Faculty *f, int id);
  * @param u 
  * @param f 
  * @param g 
- * @return int 
+ * @return int: OK on success, ERR on error
  */
 int faculty_add_group(University *u, Faculty *f, Group *g);
 
@@ -103,7 +103,7 @@ int faculty_add_group(University *u, Faculty *f, Group *g);
  * 
  * @param f 
  * @param g 
- * @return int 
+ * @return int: OK on success, ERR on error
  */
 int faculty_remove_group(Faculty *f, Group *g);
 
@@ -112,7 +112,7 @@ int faculty_remove_group(Faculty *f, Group *g);
  * 
  * @param g 
  * @param f 
- * @return size_t 
+ * @return int: OK on success, ERR on error
  */
 size_t find_group_idx_in_faculty(Group *g, Faculty *f);
 
@@ -121,7 +121,7 @@ size_t find_group_idx_in_faculty(Group *g, Faculty *f);
  * 
  * @param f 
  * @param id 
- * @return Group* 
+ * @return Group* on success, NULL on error
  */
 Group *faculty_find_group(Faculty *f, int id);
 
@@ -129,7 +129,7 @@ Group *faculty_find_group(Faculty *f, int id);
  * @brief 
  * 
  * @param f 
- * @return int 
+ * @return int: OK on success, ERR on error
  */
 int faculty_list_groups(Faculty *f);
 
