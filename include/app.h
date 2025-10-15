@@ -12,9 +12,9 @@
  * 
  * Lifetime and Ownership:
  * - 'App' owns the 'University*' instance and the 'StudentList'.
- * - The 'University' owns all 'Faculty' objects (composition relationship);
- * - Each 'Faculty' owns its 'Group' objects (composition relationship); 
- * - There cannot be two 'Group' and 'Faculty' instances with the same ID across the university;
+ * - The 'University' owns all 'Faculty' objects (one-to-many composition relationship);
+ * - Each 'Faculty' owns its 'Group' objects (one-to-many composition relationship; groups cannot belong to multiple faculties); 
+ * - There cannot be two 'Group', 'Faculty' and 'Student' instances with the same ID across the university;
  * - Each 'Group' maintains non-owning references to 'Student' objects and each 'Student' mainatains non-owning 
  *   references to 'Group' objects (many-to-many association relationship).
  * 
