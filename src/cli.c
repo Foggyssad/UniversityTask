@@ -268,24 +268,25 @@ static int cmd_quit(App *a, int argc, char **argv)
 static int cmd_help(App *a, int argc, char **argv);
 
 static const Command commands[] = {
-    {"list-groups", cmd_list_groups, "list-groups - list groups across the whole university in such format: <id> <name>"},
-    {"add-faculty", cmd_add_faculty, "add-faculty <id> <name> - add faculty which is in composition relationship with the university"},
-    {"remove-faculty", cmd_remove_faculty, "remove-faculty <id> - remove faculty from the university"},
-    {"list-faculties", cmd_list_faculties, "list-faculties - list all faculties across the whole university in such format: <id> <name>"},
-    {"add-student", cmd_add_student, "add-student <id> <name> - add a student into the global doubly linked list"},
-    {"remove-student", cmd_remove_student, "remove-student <id> - remove a student from the global doubly linked list"},
-    {"list-students", cmd_list_students, "list-students - list all students across the whole university; format: <id> <name>"},
-    {"student-list-groups", cmd_student_list_groups, "student-list-groups <student_id> - list groups of a particualar student"},
-    {"faculty-add-group", cmd_add_group, "faculty-add-group <faculty_id> <group_id> <group_name> - add group into a particular faculty"},
-    {"faculty-remove-group", cmd_remove_group, "faculty-remove-group <faculty_id> <group_id> - remove group from a particular faculty"},
-    {"faculty-list-groups", cmd_faculty_list_groups, "faculty-list-groups <faculty_id> - list all groups that belong to a particular faculty in such format: <id> <name>"},
-    {"group-list-students", cmd_group_list_students, "group-list-students <group_id>"},
-    {"enroll", cmd_enroll, "enroll <student_id> <group_id>"},
-    {"unenroll", cmd_unenroll, "unenroll <student_id> <group_id>"},
-    {"uni-info", cmd_uni_info, "uni-info - print short summary of the university"},
-    {"uni-rename", cmd_uni_rename, "uni-rename <name> - set the naem of the university (default: Vilnius Tech)"},
-    {"quit", cmd_quit, "quit - exit the REPL"},
-    {"help", cmd_help, "help - list all commands or help [command] - print format of the command"}
+    {"list-groups", cmd_list_groups, "list-groups - List groups across the university in such format: <id> <name>"},
+    {"add-faculty", cmd_add_faculty, "add-faculty <id> <name> - Create a new faculty and add it to the university; fails if a faculty with the same ID already exists"},
+    {"remove-faculty", cmd_remove_faculty, "remove-faculty <id> - Remove faculty from the university"},
+    {"list-faculties", cmd_list_faculties, "list-faculties - List all faculties across the whole university in such format: <id> <name>"},
+    {"add-student", cmd_add_student, "add-student <id> <name> - Add a student into the global doubly linked list"},
+    {"remove-student", cmd_remove_student, "remove-student <id> - Remove a student from the global doubly linked list and all groups they belong to"},
+    {"list-students", cmd_list_students, "list-students - List all students across the university; format: <id> <name>"},
+    {"student-list-groups", cmd_student_list_groups, "student-list-groups <student_id> - List groups of a particualar student"},
+    {"faculty-add-group", cmd_add_group, 
+        "faculty-add-group <faculty_id> <group_id> <group_name> - Add a group into a particular faculty; fails if a groups with the same ID exists anywhere in the university"},
+    {"faculty-remove-group", cmd_remove_group, "faculty-remove-group <faculty_id> <group_id> - Remove group from a particular faculty"},
+    {"faculty-list-groups", cmd_faculty_list_groups, "faculty-list-groups <faculty_id> - List all groups that belong to a particular faculty in such format: <id> <name>"},
+    {"group-list-students", cmd_group_list_students, "group-list-students <group_id> - List students of a particular group in such format: <id> <name>"},
+    {"enroll", cmd_enroll, "enroll <student_id> <group_id> - Enroll a student into a group"},
+    {"unenroll", cmd_unenroll, "unenroll <student_id> <group_id> - Remove a student from a group"},
+    {"uni-info", cmd_uni_info, "uni-info - Print short summary of the university"},
+    {"uni-rename", cmd_uni_rename, "uni-rename <name> - Rename the university (default: Vilnius Tech)"},
+    {"quit", cmd_quit, "quit - Exit the program and clean up"},
+    {"help", cmd_help, "help - List all commands or help [command] - print format of the command"}
 };
 
 static size_t n_commands = sizeof(commands) / sizeof(Command);
