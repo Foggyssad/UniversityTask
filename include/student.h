@@ -46,24 +46,24 @@ typedef struct StudentList {
 } StudentList;
 
 /**
- * @brief 
+ * @brief Initialization of the fields of the 'StudentList'
  * 
  * @param s_list 
  */
 void student_list_init(StudentList *s_list);
 
 /**
- * @brief 
+ * @brief Create an instance of the 'Student' and add it into the 'StudentList' linked list.
  * 
  * @param s_list 
  * @param id 
  * @param name 
- * @return Student* 
+ * @return Student* on success, NULL on failure.
  */
 Student *student_add(StudentList *s_list, int id, const char* name);
 
 /**
- * @brief 
+ * @brief remove a particular 'Student' node from the 'StudentList' linked list.
  * 
  * @param s_list 
  * @param s 
@@ -71,96 +71,96 @@ Student *student_add(StudentList *s_list, int id, const char* name);
 void student_remove_node(StudentList *s_list, Student *s);
 
 /**
- * @brief 
+ * @brief Find a particular student by id and call student_remove_node().
  * 
  * @param s_list 
  * @param id 
- * @return int 
+ * @return int: OK on success, ERR on failure. 
  */
 int student_remove(StudentList *s_list, int id);
 
 /**
- * @brief 
+ * @brief Student name getter.
  * 
  * @param s 
- * @return const char* 
+ * @return const char* on success, NULL on failure.
  */
 const char *student_get_name(const Student *s);
 
 /**
- * @brief 
+ * @brief Student id getter.
  * 
  * @param s 
- * @return int 
+ * @return int: OK on success, ERR on failure.
  */
 int student_get_id(const Student *s);
 
 /**
- * @brief 
+ * @brief Student name setter.
  * 
  * @param s 
  * @param name 
- * @return int 
+ * @return int: OK on success, ERR on failure.
  */
 int student_set_name(Student *s, const char *name);
 
 /**
- * @brief 
+ * @brief Student id setter.
  * 
  * @param s 
  * @param id 
- * @return int 
+ * @return int: OK on success, ERR on failure.
  */
 int student_set_id(Student *s, int id);
 
 /**
- * @brief 
+ * @brief Enroll a particular student into a group.
  * 
  * @param s 
  * @param g 
- * @return int 
+ * @return int: OK on success, ERR on failure.
  */
 int student_add_group(Student *s, Group *g);
 
 /**
- * @brief 
+ * @brief Unenroll a particualr student from the group.
  * 
  * @param s 
  * @param g 
- * @return int 
+ * @return int: OK on success, ERR on failure.
  */
 int student_remove_group(Student *s, Group *g);
 
 /**
- * @brief 
+ * @brief List all students across the university.
  * 
  * @param s_list 
- * @return int 
+ * @return int: OK on success, ERR on failure.
  */
 int list_students(StudentList *s_list);
 
 /**
- * @brief 
+ * @brief List all groups that a particular student is enrolled into.
  * 
  * @param s 
- * @return int 
+ * @return int: OK on success, ERR on failure.
  */
 int list_student_groups(Student *s);
 
 /**
- * @brief 
+ * @brief Destroy every student node in the StudentList linked list and call student_list_init().
  * 
  * @param s_list 
- * @return int 
+ * @return int: OK on success, ERR on failure.
  */
 int student_list_clear(StudentList *s_list);
 
 /**
- * @brief 
+ * @brief Traverse the linked list and find 
  * 
  * @param s_list 
  * @param id 
- * @return Student* 
+ * @return Student* on success, NULL on failure.
  */
 Student *student_find(StudentList *s_list, int id);
 

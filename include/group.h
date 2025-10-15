@@ -26,7 +26,7 @@ typedef struct Group {
 } Group;
 
 /**
- * @brief Group Constructor. When called allocated memory, creates instance.
+ * @brief Group Constructor. When called, allocates memory on heap, creates instance.
  * 
  * @param id 
  * @param name 
@@ -35,7 +35,7 @@ typedef struct Group {
 Group *group_create(int id, const char *name);
 
 /**
- * @brief Destructor of the 'Group' instance.
+ * @brief Destructor of the 'Group' instance. When called, allocated heap memory is freed, instance is destroyed.
  * 
  * @param g 
  */
@@ -76,55 +76,46 @@ const char *group_get_name(const Group *g);
 size_t group_get_student_count(const Group *g);
 
 /**
- * @brief 
- * 
- * @param g 
- * @param idx 
- * @return Student* on success, NULL on failure.
- */
-Student *group_get_student(const Group *g, size_t idx);
-
-/**
- * @brief 
+ * @brief Group name getter.
  * 
  * @param g 
  * @param name 
- * @return int 
+ * @return int: OK on success, ERR on failure. 
  */
 int group_set_name(Group *g, const char *name);
 
 /**
- * @brief 
+ * @brief Group id setter.
  * 
  * @param g 
  * @param id 
- * @return int 
+ * @return int: OK on success, ERR on failure.
  */
 int group_set_id(Group *g, int id);
 
 /**
- * @brief 
+ * @brief Unenroll a student from the group.
  * 
  * @param g 
  * @param s 
- * @return int 
+ * @return int: OK on success, ERR on failure.
  */
 int group_add_student(Group *g, struct Student *s);
 
 /**
- * @brief 
+ * @brief Unenroll a student from the group.
  * 
  * @param g 
  * @param s 
- * @return int 
+ * @return int: OK on success, ERR on failure.
  */
 int group_remove_student(Group *g, struct Student *s);
 
 /**
- * @brief 
+ * @brief List all students enrolled into a particular group.
  * 
  * @param g 
- * @return int 
+ * @return int: OK on success, ERR on failure.
  */
 int list_group_students(Group *g);
 
