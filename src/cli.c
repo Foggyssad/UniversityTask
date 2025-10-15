@@ -39,7 +39,7 @@ static int cmd_add_faculty(App *a, int argc, char **argv)
 
     if (argc < 2)
     {
-        printf("%s", "Error: failed to add the faculty (invalid input).\n");
+        printf("%s\n", "Error: failed to add the faculty (invalid input).");
         return ERR;
     }
     else
@@ -78,7 +78,7 @@ static int cmd_remove_faculty(App *a, int argc, char **argv)
 {
     if (argc < 1)
     {
-        printf("%s", "Error: failed to remove the faculty (invalid input).\n");
+        printf("%s\n", "Error: failed to remove the faculty (invalid input).");
         return ERR;
     }
 
@@ -89,7 +89,7 @@ static int cmd_remove_faculty(App *a, int argc, char **argv)
 
         else
     {
-        printf("%s %d %s", "Error: failed to remove the faculty with id ", id, "\n");
+        printf("%s %d\n", "Error: failed to remove the faculty with id ", id);
         return ERR;
     }
 }
@@ -106,7 +106,7 @@ static int cmd_add_student(App *a, int argc, char **argv)
 {
     if (argc < 2)
     {
-        printf("%s", "Error: failed to add the student (invalid input).\n");
+        printf("%s\n", "Error: failed to add the student (invalid input).");
         return ERR;
     }
 
@@ -120,7 +120,7 @@ static int cmd_remove_student(App *a, int argc, char **argv)
 {
     if (argc < 1)
     {
-        printf("%s", "Error: failed to remove the faculty (invalid input).\n");
+        printf("%s\n", "Error: failed to remove the faculty (invalid input).");
         return ERR;
     }
     
@@ -130,7 +130,7 @@ static int cmd_remove_student(App *a, int argc, char **argv)
 
         else
     {
-        printf("%s %d %s", "Error: failed to remove the student with id ", id, "\n");
+        printf("%s %d\n", "Error: failed to remove the student with id ", id);
         return ERR;
     }
     return OK;
@@ -156,7 +156,7 @@ static int cmd_student_list_groups(App *a, int argc, char **argv)
 {
     if (argc < 1)
     {
-        printf("%s", "Error: failed to list the groups which the student is enrolled in (invalid input).\n");
+        printf("%s\n", "Error: failed to list the groups which the student is enrolled in (invalid input).");
         return ERR;
     }
     
@@ -169,7 +169,7 @@ static int cmd_add_group(App *a, int argc, char **argv)
 {
     if (argc < 3)
     {
-        printf("%s", "Error: failed to add the group to the faculty (invalid input).\n");
+        printf("%s\n", "Error: failed to add the group to the faculty (invalid input).");
         return ERR;
     }
     
@@ -178,7 +178,7 @@ static int cmd_add_group(App *a, int argc, char **argv)
 
     if (university_find_faculty(a->uni, faculty_id) == NULL || university_find_group(a->uni, group_id) != NULL)
     {
-        printf("%s\n", "Error: failed to add a group to the faculty (duplicate id).\n");
+        printf("%s\n", "Error: failed to add a group to the faculty (duplicate id).");
         return ERR;
     }
     
