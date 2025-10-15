@@ -86,6 +86,12 @@ int student_remove(StudentList *s_list, int id)
 	if (s == NULL)
 		return ERR;
 	
+	while(s->group_count > 0)
+	{
+		Group *g = s->groups[s->group_count - 1];
+		group_remove_student(g, s);
+	}
+
 	student_remove_node(s_list, s);
 	
 	return OK;
@@ -153,7 +159,7 @@ int list_student_groups(Student *s)
 	for (size_t i = 0; i < s->group_count; i++)
 	{
 		Group *g = s->groups[i];
-		printf("%d %s\n", g->id, g->name);
+		if (g) printf("%d %s\n", g->id, g->name);
 	}
 	return OK;
 }

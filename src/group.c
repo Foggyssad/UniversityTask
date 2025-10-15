@@ -37,7 +37,7 @@ size_t find_group_idx_in_student(const Student *s, const Group *g)
 			return i;
 		}
 	}
-	
+
 	return SIZE_MAX;
 }
 
@@ -58,6 +58,15 @@ Group *group_create(int id, const char *name)
 
 void group_destroy(Group *g)
 {
+	if (g == NULL)
+		return;
+	
+	while(g->student_count > 0)
+	{
+		Student *s = g->students[g->student_count - 1];
+		group_remove_student(g, s);
+	}
+
 	free(g->students);
 	free(g);
 }
@@ -121,15 +130,19 @@ int group_remove_student(Group *g, Student *s)
 	if (s_idx == SIZE_MAX)
 		return ERR;
 	
-	g->student_count--;
-	g->students[s_idx] = g->students[g->student_count];
+	size_t last_s = g->student_count - 1;
+	g->students[s_idx] = g->students[last_s];
+	g->students[last_s] = NULL;
+	g->student_count = last_s;
 
 	size_t g_idx = find_group_idx_in_student(s, g);
 	if (g_idx == SIZE_MAX)
 		return ERR;
 
-	s->group_count--;
-	s->groups[g_idx] = s->groups[s->group_count];
+	size_t last_g = s->group_count - 1;
+	s->groups[g_idx] = s->groups[last_g];
+	s->groups[last_g] = NULL;
+	s->group_count = last_g;
 
 	return OK;
 }
@@ -153,7 +166,7 @@ int list_group_students(Group *g)
 	for (size_t i = 0; i < g->student_count; i++)
 	{
 		Student *s = g->students[i];
-		printf("%d %s\n", s->id, s->name);
+		if (s) printf("%d %s\n", s->id, s->name);
 	}
 	return OK;
 }
