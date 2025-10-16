@@ -115,6 +115,7 @@ int faculty_remove_group(Faculty *f, Group *g)
 	if (idx == SIZE_MAX)
 		return ERR;
 
+		
 	size_t last = --f->group_count;
 	f->groups[idx] = f->groups[last];
 	f->groups[last] = NULL;

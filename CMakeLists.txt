@@ -60,3 +60,8 @@ foreach(t IN LISTS TEST_SOURCES)
     add_test(NAME ${t} COMMAND ${t})
 
 endforeach()
+
+install(TARGETS uni RUNTIME DESTINATION bin)
+
+install(DIRECTORY include/ DESTINATION include
+        FILES_MATCHING PATTERN "*.h")
